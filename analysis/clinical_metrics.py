@@ -298,7 +298,7 @@ def extract_features_from_trial(row):
             'peak_jerk': peak_jerk,
             'pause_count': pause_count,
             'longest_pause_duration': longest_pause_duration,
-            'initiation_delay': row.get('initiation_delay_ms'),
+            'initiation_delay': row.get('initiation_delay'),
             'movement_time_ms': row.get('movement_time_ms'),
             'fitts_law_id': fitts_law_id,
             'fitts_law_throughput': fitts_law_throughput
@@ -344,7 +344,7 @@ def extract_features_from_trial(row):
             'cv_intertap_interval': cv_intertap,
             'tap_spatial_sd': spatial_sd,
             'tap_accuracy': tap_accuracy,
-            'initiation_delay': row.get('initiation_delay_ms')
+            'initiation_delay': row.get('initiation_delay')
         })
         
     elif task == 'hold':
@@ -391,8 +391,8 @@ def extract_features_from_trial(row):
             'hold_force_range': (np.max(forces) - np.min(forces)) if force_valid else np.nan,
             'hold_force_median': np.median(forces) if force_valid else np.nan,
             'hold_force_valid': force_valid,
-            'akinetic_delay_hold_ms': row.get('akinetic_delay_hold_ms'),
-            'initiation_delay': row.get('initiation_delay_ms')
+            'akinetic_delay_hold': row.get('akinetic_delay_hold'),
+            'initiation_delay': row.get('initiation_delay')
         })
         
     return pd.Series(dtype=float)
